@@ -5,6 +5,7 @@
 #include <node_api.h>
 
 #include "plus.h"
+#include "power.h"
 #include "minus.h"
 #include "modulo.h"
 #include "division.h"
@@ -85,6 +86,8 @@ napi_value calc(napi_env env, napi_callback_info info){
 		amount = plus(fa, fb);
 	} else if (!strcmp(o, "minus")) {
 		amount = minus(fa, fb);
+	} else if (!strcmp(o, "power")) {
+		amount = power(fa, fb);
 	} else if (!strcmp(o, "modulo")) {
 		amount = modulo(fa, fb);
 	} else if (!strcmp(o, "division")) {

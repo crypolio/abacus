@@ -1,6 +1,6 @@
 # Abacus
 
-abacus.js is a light javascript library for node.js build on . It supports arithmetic operations on floting point.
+abacus.js is a light javascript library for node.js built with c code and gyp bindings. It supports arithmetic operations on floting point.
 
 
 # How to install
@@ -77,7 +77,7 @@ npm run test ./lib/tests/arithmetic.test.js
 
 # TODO
 
-[] Add support for integers.
-[] Add support for Abacus instance.
-[] Add support for `pow` calculation.
-[] Add support for floaitng number precision.
+- [] Add support for integers.
+- [] Add support for Abacus instance.
+- [] Add support for `pow` calculation.
+- [] Add support for floaitng number precision.
