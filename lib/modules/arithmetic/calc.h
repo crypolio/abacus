@@ -98,7 +98,7 @@ napi_value calc(napi_env env, napi_callback_info info){
 
 	// TODO: Add support for dynamic number parsing.
 
-	sprintf(buf, "%lf", amount);
+	sprintf(buf, "%0.8lf", amount);
 
 	napi_create_string_utf8(env, buf, strlen(buf), &response);
 

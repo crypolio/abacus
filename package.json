@@ -1,8 +1,8 @@
 {
 	"private": true,
-	"name": "arbacus",
+	"name": "abacus",
 	"version": "1.0.0",
-	"main": "build/index.js",
+	"main": "lib/index.js",
 	"author": "Choleski Louis <choleski@gmx.com>",
 	"keywords": ["arithmetic", "calculation", "scientific", "finance"],
 	"license": "MIT",
