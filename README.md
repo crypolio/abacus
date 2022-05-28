@@ -79,5 +79,3 @@ npm run test ./lib/tests/arithmetic.test.js
 
 - [] Add support for integers.
 - [] Add support for Abacus instance.
-- [] Add support for `pow` calculation.
-- [] Add support for floaitng number precision.
