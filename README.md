@@ -75,7 +75,7 @@ Each separate test module can also be executed individually, for example:
 npm run test ./lib/tests/arithmetic.test.js
 ```
 
-# TODO
+# Task todo
 
 - [] Add support for integers.
 - [] Add support for Abacus instance.
