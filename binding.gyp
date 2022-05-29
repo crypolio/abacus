@@ -1,6 +1,6 @@
 {
   "targets": [{
-    "target_name": "module",
-    "sources": ["./lib/modules/module.c"]
+    "target_name": "abacus",
+    "sources": ["./lib/main.c"]
   }]
 }

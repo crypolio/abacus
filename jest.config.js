@@ -5,9 +5,9 @@ module.exports = {
 		'^.+\\.(js|jsx)$': 'babel-jest'
 	},
 	testEnvironment: 'node',
-	testRegex: './lib/.*\\.(test|spec)?\\.(js|ts)$',
+	testRegex: './tests/.*\\.(test|spec)?\\.(js|ts)$',
 	moduleFileExtensions: ['ts', 'js', 'json', 'node'],
 	'roots': [
-		'<rootDir>/lib'
+		'<rootDir>/tests'
 	]
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-const abacus = require('../build/Release/module');
+const abacus = require('./build/Release/abacus');
 
 const DEFAULT_CONFIG = {
 	precision: 8,
