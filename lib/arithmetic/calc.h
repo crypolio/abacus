@@ -11,6 +11,8 @@
 #include "division.h"
 #include "multiply.h"
 
+#define DOUBLE_LENGTH 20
+
 #define MIN_PRECISION 4
 #define MAX_PRECISION 8
 #define MAX_BUFFER_SIZE 100
@@ -45,13 +47,13 @@ napi_value calc(napi_env env, napi_callback_info info){
 
 	int p = 0, precision = 8;
 
-	char a[10], b[10], o[10] = "";
-
 	char buf[MAX_BUFFER_SIZE] = "";
 
 	size_t a_copied, b_copied, o_copied;
 
 	double fa = 0.00, fb = 0.00, amount = 0.00;
+
+	char a[DOUBLE_LENGTH], b[DOUBLE_LENGTH], o[DOUBLE_LENGTH] = "";
 
 	size_t a_size = sizeof(a), b_size = sizeof(b), o_size = sizeof(o);
 
