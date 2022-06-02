@@ -14,7 +14,7 @@
 #define DOUBLE_LENGTH 20
 
 #define MIN_PRECISION 4
-#define MAX_PRECISION 8
+#define MAX_PRECISION 16
 #define MAX_BUFFER_SIZE 100
 
 /**
@@ -23,35 +23,30 @@
  * @returns Returns adjusted precision within allowed range.
  */
 int set_precision(int p) {
-	int precision = 0;
+	int precision = p;
 
-	if (p >= MAX_PRECISION)
+	if (precision >= MAX_PRECISION) {
 		precision = MAX_PRECISION;
+	}
 
-	if (p <= MIN_PRECISION)
+	if (precision <= MIN_PRECISION) {
 		precision = MIN_PRECISION;
+	}
 
 	return precision;
 }
 
 napi_value calc(napi_env env, napi_callback_info info){
 
-	char* pend;
-
-	int nbr_args = 4;
-
-	napi_value response;
-
-	size_t argc = nbr_args;
-	napi_value argv[nbr_args];
-
-	int p = 0, precision = 8;
-
 	char buf[MAX_BUFFER_SIZE] = "";
 
-	size_t a_copied, b_copied, o_copied;
+	int nbr_args = 4, precision = 8;
+
+	napi_value response, argv[nbr_args];
 
 	double fa = 0.00, fb = 0.00, amount = 0.00;
+
+	size_t argc = nbr_args, a_copied, b_copied, o_copied;
 
 	char a[DOUBLE_LENGTH], b[DOUBLE_LENGTH], o[DOUBLE_LENGTH] = "";
 
@@ -60,18 +55,18 @@ napi_value calc(napi_env env, napi_callback_info info){
 	// Parse arguments.
 	napi_get_cb_info(env, info, &argc, argv, NULL, NULL);
 
-	napi_get_value_int32(env, argv[3], &p);
+	napi_get_value_int32(env, argv[3], &precision);
 
 	napi_get_value_string_utf8(env, argv[0], &a, a_size, &a_copied);
 	napi_get_value_string_utf8(env, argv[2], &b, b_size, &b_copied);
 	napi_get_value_string_utf8(env, argv[1], &o, o_size, &o_copied);
 
 	// Convert string params to double.
-	fa = strtof(a, &pend);
-	fb = strtof(b, NULL);
+	fa = atof(a);
+	fb = atof(b);
 
 	// Set precision size.
-	precision = set_precision(p);
+	precision = set_precision(precision);
 
 	if (!strcmp(o, "plus")) {
 		amount = plus(fa, fb);

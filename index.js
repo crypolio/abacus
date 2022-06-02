@@ -33,7 +33,7 @@ const _stringifyNum = (n) => {
 };
 
 
-function Abacus(n) {
+function Abacus(n, config = {}) {
 
 	var x = this;
 
@@ -46,9 +46,7 @@ function Abacus(n) {
 
 	this.n = _stringifyNum(n);
 
-	this.config = this.setup;
-
-	this.options = this.config();
+	this.options = Object.assign(DEFAULT_CONFIG, config);
 
 	this.add = this.plus;
 	this.min = this.minus;
@@ -63,15 +61,6 @@ function Abacus(n) {
 	this.lte = this.isLessThanOrEqualTo;
 	this.gte = this.isGreaterThanOrEqualTo;
 
-}
-
-/**
- * To number.
- * @returns Returns the value of this Abacus as a JavaScript number primitive.
- */
-Abacus.prototype.setup = function(options = {}) {
-	this.options = Object.assign(DEFAULT_CONFIG, options);
-	return this;
 }
 
 /**
