@@ -105,6 +105,25 @@ Abacus.prototype.minus = function(n) {
 }
 
 /**
+ * Power.
+ * @params {number|string|Abacus} n.
+ * @returns Returns an Abacuse whose value is the value of this Abacuse exponentiated by n.
+ */
+Abacus.prototype.power = function(n) {
+	this.setValue(abacus.calc(this.n, "power", _stringifyNum(n), this.options.precision));
+	return this;
+}
+
+/**
+ * Floor
+ * @returns Returns an Abacus whose value is the value of this Abacus floor n.
+ */
+Abacus.prototype.floor = function() {
+	this.setValue(abacus.calc(this.n, "floor", _stringifyNum(this.n), this.options.precision));
+	return this;
+}
+
+/**
  * Modulo.
  * @params {number|string|Abacus} n.
  * @returns Returns an Abacus whose value is the value of this Abacus modulo n.
@@ -131,16 +150,6 @@ Abacus.prototype.multiply = function(n) {
  */
 Abacus.prototype.division = function(n) {
 	this.setValue(abacus.calc(this.n, "division", _stringifyNum(n), this.options.precision));
-	return this;
-}
-
-/**
- * Power.
- * @params {number|string|Abacus} n.
- * @returns Returns an Abacuse whose value is the value of this Abacuse exponentiated by n.
- */
-Abacus.prototype.power = function(n) {
-	this.setValue(abacus.calc(this.n, "power", _stringifyNum(n), this.options.precision));
 	return this;
 }
 
@@ -192,6 +201,15 @@ Abacus.prototype.isLessThanOrEqualTo = function(n) {
 }
 
 /* ----------------------- [ Utilities methods ] ----------------------- */
+
+/**
+ * To number.
+ * @returns Returns the value of this Abacus as a JavaScript number primitive.
+ */
+Abacus.prototype.toPrecision = function() {
+	this.setValue(abacus.calc(this.n, "precise", _stringifyNum(this.n), this.options.precision));
+	return this;
+}
 
 /**
  * To number.

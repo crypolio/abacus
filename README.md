@@ -61,6 +61,11 @@ Abacus(15).mod(5); 	// '0.00000000'
 Abacus(15).pow(5); 	// '759375.00000000'
 ```
 
+### Floor
+```javascript
+Abacus(15.12345).floor(); // '15'
+```
+
 # Test
 
 To run the tests using Node.js from the root directory:

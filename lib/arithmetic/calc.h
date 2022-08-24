@@ -5,8 +5,9 @@
 #include <node_api.h>
 
 #include "plus.h"
-#include "power.h"
 #include "minus.h"
+#include "power.h"
+#include "floor.h"
 #include "modulo.h"
 #include "division.h"
 #include "multiply.h"
@@ -40,6 +41,8 @@ napi_value calc(napi_env env, napi_callback_info info){
 
 	char buf[MAX_BUFFER_SIZE] = "";
 
+	bool has_precision = true;
+
 	int nbr_args = 4, precision = 8;
 
 	napi_value response, argv[nbr_args];
@@ -65,15 +68,15 @@ napi_value calc(napi_env env, napi_callback_info info){
 	fa = atof(a);
 	fb = atof(b);
 
-	// Set precision size.
-	precision = set_precision(precision);
-
 	if (!strcmp(o, "plus")) {
 		amount = plus(fa, fb);
 	} else if (!strcmp(o, "minus")) {
 		amount = minus(fa, fb);
 	} else if (!strcmp(o, "power")) {
 		amount = power(fa, fb);
+	} else if (!strcmp(o, "floor")) {
+		amount = floor(fa);
+		has_precision = false;
 	} else if (!strcmp(o, "modulo")) {
 		amount = modulo(fa, fb);
 	} else if (!strcmp(o, "division")) {
@@ -81,6 +84,9 @@ napi_value calc(napi_env env, napi_callback_info info){
 	} else if (!strcmp(o, "multiply")) {
 		amount = multiply(fa, fb);
 	}
+
+	// Set precision size.
+	precision = has_precision ? set_precision(precision) : 0;
 
 	sprintf(buf, "%.*lf", precision, amount);
 
