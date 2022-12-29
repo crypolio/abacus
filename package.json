@@ -1,6 +1,6 @@
 {
-	"private": true,
-	"name": "abacus",
+	"private": false,
+	"name": "@choleski/abacus",
 	"version": "1.0.0",
 	"main": "index.js",
 	"author": "Choleski Louis <choleski@gmx.com>",
