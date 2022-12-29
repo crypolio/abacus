@@ -77,6 +77,6 @@ npm run test
 Each separate test module can also be executed individually, for example:
 
 ```bash
-npm run test ./lib/tests/arithmetic.test.js
+npm run test ./tests/arithmetic.test.js
 ```
 
